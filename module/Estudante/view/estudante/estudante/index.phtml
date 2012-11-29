@@ -1,1 +1,32 @@
-Index
+<h3>Relação de Estudantes</h3>
+<div class="pull-right">
+	<a
+		href="<?php echo $this->url('estudante', array('action' => 'add')); ?>"
+		class="btn btn-primary">Novo Registro</a> <br /> <br />
+</div>
+
+
+<table class="table table-condensed table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Código</th>
+			<th>Nome</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($this->estudantes AS $estudante) :?>
+		<tr>
+			<td><?php echo $estudante->matricula; ?></td>
+			<td><?php echo $estudante->nome; ?></td>
+			<td>
+				<div class="btn-group" data-toggle="buttons-radio" style="text-align: center">
+					<a href="<?php echo $this->url('estudante', array('action'=>'edit','matricula'=> $estudante->matricula)); ?>" class="btn">Editar</a>
+					<a href="<?php echo $this->url('estudante', array('action'=>'delete','matricula'=> $estudante->matricula)); ?>" class="btn btn-danger">Excluir</a>
+				</div>
+			</td>
+		</tr>
+		<?php endforeach;?>
+
+	</tbody>
+</table>

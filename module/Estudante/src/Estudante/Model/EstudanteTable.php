@@ -10,7 +10,7 @@ class EstudanteTable{
 		$this->tableGateway = $tableGateway;
 	}
 	
-	public function fetchaAll(){
+	public function fetchAll(){
 		
 		return $this->tableGateway->select();
 	}

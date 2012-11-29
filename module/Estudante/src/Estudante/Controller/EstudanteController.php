@@ -9,14 +9,26 @@
 
 namespace Estudante\Controller;
 
+use Estudante\Model\EstudanteTable;
+
 use Zend\Mvc\Controller\AbstractActionController,
 Zend\View\Model\ViewModel;
 
-class EstudanteController extends AbstractActionController
-{
+class EstudanteController extends AbstractActionController{
+	/*
+	 * 
+	 * @var EstudanteTable
+	 */
+	protected  $estudanteTable;
+
+
 	public function indexAction()
 	{
-		return new ViewModel();
+		return new ViewModel(
+				array(
+						'estudantes' => $this->getEstudanteTable()->fetchAll()
+				)
+		);
 	}
 
 	public function addAction()
@@ -33,9 +45,18 @@ class EstudanteController extends AbstractActionController
 	{
 		return new ViewModel();
 	}
-	
+
 	public function deleteAction()
 	{
 		return new ViewModel();
+	}
+	
+	public function getEstudanteTable(){
+		if(!$this->estudanteTable){
+			$sm = $this->getServiceLocator();
+			$this->estudanteTable = $sm->get("Estudante\Model\EstudanteTable");
+		}
+	
+		return $this->estudanteTable;
 	}
 }
