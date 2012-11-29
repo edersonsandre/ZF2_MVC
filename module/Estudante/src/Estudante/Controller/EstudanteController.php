@@ -9,6 +9,10 @@
 
 namespace Estudante\Controller;
 
+use Estudante\Form\EstudanteForm;
+
+use Estudante\Model\Estudante;
+
 use Estudante\Model\EstudanteTable;
 
 use Zend\Mvc\Controller\AbstractActionController,
@@ -33,6 +37,17 @@ class EstudanteController extends AbstractActionController{
 
 	public function addAction()
 	{
+		
+		if($this->getRequest()->isPost()){
+			$estudante = new Estudante();
+			$estudante->exchangeArray($_POST);
+			//$this->getEstudanteTable()->
+		}
+		
+		$form = new EstudanteForm();
+		
+		//return new ViewModel(array('form'=>$form));
+		
 		return new ViewModel();
 	}
 
@@ -41,9 +56,16 @@ class EstudanteController extends AbstractActionController{
 		return new ViewModel();
 	}
 
-	public function editAction()
-	{
-		return new ViewModel();
+	public function editAction(){
+		
+		$matricula = (int) $this->params()->fromRouter('matricula');
+		$estudante = $this->getEstudanteTable()->getEstudante($matricula);
+		
+		$form = new \Estudante\Form\Estudante();
+		$form->bind($estudante);
+		
+		
+		return new ViewModel(array('form'=>$form));
 	}
 
 	public function deleteAction()

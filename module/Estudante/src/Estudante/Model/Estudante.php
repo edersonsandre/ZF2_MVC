@@ -9,4 +9,8 @@ class Estudante{
 		$this->matricula = (isset($data['matricula'])) ? $data['matricula'] : null;
 		$this->nome = (isset($data['nome'])) ? $data['nome'] : null;
 	}
+	
+	public function getArrayCopy(){
+		return get_object_vars($this);
+	}
 }

@@ -3,15 +3,16 @@ namespace Estudante\Form;
 
 use Zend\Form\Form;
 
-class Estudante extends Form{
+class EstudanteForm extends Form{
 
 	public function __construct($name = null){
 		parent::__construct('estudante');
-		$this->setAttribute('method', 'POST');
+		
+		$this->setAttribute('method', 'post');
 
 		$this->add(
 				array(
-						'nome' => 'matricula',
+						'name' => 'matricula',
 						'attributes' => array(
 								'type' => 'hidden'
 						)
@@ -21,7 +22,7 @@ class Estudante extends Form{
 
 		$this->add(
 				array(
-						'nome' => 'nome',
+						'name' => 'nome',
 						'attributes' => array(
 								'type' => 'text'
 						),
