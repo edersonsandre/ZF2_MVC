@@ -23,7 +23,7 @@ return array(
 						'estudante' => array(
 								'type' => 'segment',
 								'options' => array(
-										'route'    => '/estudante[/:action][/:matricula]',
+										'route'    => '/estudante[/:action][/:matricula][/]',
 										'defaults' => array(
 												'controller' => 'Estudante\Controller\Estudante',
 												'action'     => 'index',

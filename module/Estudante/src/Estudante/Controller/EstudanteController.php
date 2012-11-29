@@ -10,17 +10,32 @@
 namespace Estudante\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController,
-	Zend\View\Model\ViewModel;
+Zend\View\Model\ViewModel;
 
 class EstudanteController extends AbstractActionController
 {
-    public function indexAction()
-    {
-        return new ViewModel();
-    }
-    
-    public function estudanteAction()
-    {
-    	return new ViewModel();
-    }    
+	public function indexAction()
+	{
+		return new ViewModel();
+	}
+
+	public function addAction()
+	{
+		return new ViewModel();
+	}
+
+	public function registroAction()
+	{
+		return new ViewModel();
+	}
+
+	public function editAction()
+	{
+		return new ViewModel();
+	}
+	
+	public function deleteAction()
+	{
+		return new ViewModel();
+	}
 }
