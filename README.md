@@ -1,5 +1,4 @@
 ZendSkeletonApplication
-=======================
 
 Introduction
 ------------
